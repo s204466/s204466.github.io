@@ -48,7 +48,7 @@ plt.ylabel("Vehicle Thefts")
 plt.show()
 ```
 
-![Bar Chart](https://github.com/s204466/s204466.github.io/blob/3d26f4f1df67929499c86dbcb767904324f40cef/Files/Bar%20Chart.png)
+![Bar Chart](https://github.com/s204466/s204466.github.io/raw/04fb25aa4d67a68fc2759248762ffd699d43d38f/Files/Bar%20Chart.png)
 
 
 !!----!!
@@ -96,5 +96,5 @@ for i in range(0, len(dfMap05)):
 mapSF
 ```
 
-![Map](https://github.com/s204466/s204466.github.io/blob/3d26f4f1df67929499c86dbcb767904324f40cef/Files/Map.png)
+![Map](https://github.com/s204466/s204466.github.io/raw/3d26f4f1df67929499c86dbcb767904324f40cef/Files/Map.png)
 
