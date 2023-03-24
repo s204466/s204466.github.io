@@ -9,7 +9,7 @@ Just Visualizing data is one thing, but also discovering why The data looks as i
 
 First thing to do, in order to analyse the data, is to drag in the .csv file containting all the datapoints, along with importing all the nessessary packages:
 
-```
+```python
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
@@ -27,7 +27,7 @@ Copy text from the desktop
 
 
 
-```
+```JSON
 dataBar = data[data["Date"].str.contains("2018") == False]
 dataBar = dataBar[dataBar["Category"].str.contains("VEHICLE THEFT") == True]
 dataBar = dataBar.groupby(['Category', dataBar['Date'].str[-4:]]).size()
