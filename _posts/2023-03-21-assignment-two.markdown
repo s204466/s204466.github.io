@@ -91,7 +91,7 @@ for i in range(0, len(dfMap06)):
 m
 ```
 
-![Map](https://github.com/s204466/s204466.github.io/raw/3d26f4f1df67929499c86dbcb767904324f40cef/Files/Map.png)
+![Map](https://github.com/s204466/s204466.github.io/blob/5d747b13f97b767a48f0e9d5b3ef1b7b722323f5/Files/Dual%20Map.png)
 
 Here red dots represent cases from 2005, and the blue dots represent cases from 2006.   
 
