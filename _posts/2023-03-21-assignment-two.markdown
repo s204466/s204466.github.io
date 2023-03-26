@@ -97,7 +97,9 @@ Here red dots represent cases from 2005, and the blue dots represent cases from 
 
 Here it can be seen that all over the city, the blue dots are more sparce than the red ones, which is to be expected since the number of cases has more than halved. It is particularly in the northeastern part of the city, which would make sense since that is the most populated part of the area. We can also see that there are no cases in the park areas, particularly clear in "Golden Gate Part" and in "Presidio", which can tell us that there are no cars in these areas.
 
+Lastly we can make a bokeh interactive plot to, more in depth, look at Vehicle Theft in each district of the city pr year.
 
+!!--Bokeh Code--!!
 
 
 So, to conclude, it is clear that something has happened in regards to stopping Vehicle Theft in San Francisco. There can be multiple reasons for this. One could be due to the invention of  'engine immobilizer systems' which are devices that block the car engine if a wrong key is used to start it. More of this can be read here: https://www.nytimes.com/2014/08/12/upshot/heres-why-stealing-cars-went-out-of-fashion.html
