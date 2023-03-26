@@ -47,9 +47,8 @@ plt.show()
 
 ![Bar Chart](https://github.com/s204466/s204466.github.io/raw/04fb25aa4d67a68fc2759248762ffd699d43d38f/Files/Bar%20Chart.png)
 
-From here we can see that there has been a significant decrease of Vehicle Thefts with a drop of roughly 10.000 cases between 2005-2006, and that the number has stayed around 5.000-7.500 ever since. It would seem safe enough to conclude that something about car safety was done in 2005-2006. 
+From here we can see that there has been a significant decrease of Vehicle Thefts with a drop of roughly 10.000 cases between 2005-2006, and that the number has stayed around 5.000-7.500 ever since. It would seem safe enough to conclude that something about car safety was done between 2005 and 2006. 
 
-\newline
 
 It would also be interesting to see if this decrease of cases has happened across the whole city, or if it is only in some districts of the city where Vehicle Theft has decreased. This can be done by making a map over the city and then using the latitude and longitude information from the .csv file  to place a dot on each location where a Vehicle Theft was reported. In the following we are going to be looking at a map with dots for each report, in 2005 and 2006, and see where a decrease in reports have taken place.
 
@@ -69,32 +68,34 @@ dfMap06 = pd.DataFrame(dataMap06)
 
 
 ```python
-#Load in the map
-mapSF = folium.Map(location=[37.77, -122.40],
-                        tiles = "Stamen Toner",
-                    zoom_start = 13) 
+#Create dual map
+m = folium.plugins.DualMap(location=[37.77, -122.40], tiles='Stamen Toner', zoom_start=13)
 
+#Display all cases in 2005 as a little blue dot
+for i in range(0, len(dfMap05)):
+    folium.CircleMarker(
+        location=[dfMap05.iloc[i]['Y'], dfMap05.iloc[i]['X']],
+        radius=1,
+        color='red',
+    ).add_to(m.m1)
+    
+    
 #Display all cases in 2006 as a little blue dot
 for i in range(0, len(dfMap06)):
     folium.CircleMarker(
         location=[dfMap06.iloc[i]['Y'], dfMap06.iloc[i]['X']],
         radius=1,
         color='blue',
-    ).add_to(mapSF)
+    ).add_to(m.m2)
 
-#Display all cases in 2005 as a little red dot
-for i in range(0, len(dfMap05)):
-    folium.CircleMarker(
-        location=[dfMap05.iloc[i]['Y'], dfMap05.iloc[i]['X']],
-        radius=1,
-        color='red',
-    ).add_to(mapSF)
-
-mapSF
+m
 ```
 
 ![Map](https://github.com/s204466/s204466.github.io/raw/3d26f4f1df67929499c86dbcb767904324f40cef/Files/Map.png)
 
 Here red dots represent cases from 2005, and the blue dots represent cases from 2006.   
+
+Here it can be seen that all over the city, the blue dots are more sparce than the red ones, which is to be expected since the number of cases has more than halved. It is particularly in the northeastern part of the city, which would make sense since that is the most populated part of the area. We can also see that there are no cases in the park areas, particularly clear in “Golden Gate Part” and in “Presidio”, which can tell us that there are no cars in these areas.
+
 
 
