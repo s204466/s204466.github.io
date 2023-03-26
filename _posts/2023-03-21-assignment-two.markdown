@@ -23,10 +23,7 @@ data = pd.read_csv("../Police_Department_Incident_Reports__Historical_2003_to_Ma
 ```
 
 
-!!----!!
-Copy Bar text from the desktop
-!!----!!
-
+First lets take a look at how the number of reported Vehicle thefts have changed over the years from 2003 – 2017. This can be done by making a bar-chart plot with years along the x-axis, and number of reports along the y-axis
 
 
 ```python
@@ -50,11 +47,11 @@ plt.show()
 
 ![Bar Chart](https://github.com/s204466/s204466.github.io/raw/04fb25aa4d67a68fc2759248762ffd699d43d38f/Files/Bar%20Chart.png)
 
+From here we can see that there has been a significant decrease of Vehicle Thefts with a drop of roughly 10.000 cases between 2005-2006, and that the number has stayed around 5.000-7.500 ever since. It would seem safe enough to conclude that something about car safety was done in 2005-2006. 
 
-!!----!!
-Copy Map text from the desktop
-!!----!!
+\newline
 
+It would also be interesting to see if this decrease of cases has happened across the whole city, or if it is only in some districts of the city where Vehicle Theft has decreased. This can be done by making a map over the city and then using the latitude and longitude information from the .csv file  to place a dot on each location where a Vehicle Theft was reported. In the following we are going to be looking at a map with dots for each report, in 2005 and 2006, and see where a decrease in reports have taken place.
 
 
 ```python
@@ -97,4 +94,7 @@ mapSF
 ```
 
 ![Map](https://github.com/s204466/s204466.github.io/raw/3d26f4f1df67929499c86dbcb767904324f40cef/Files/Map.png)
+
+Here red dots represent cases from 2005, and the blue dots represent cases from 2006.   
+
 
