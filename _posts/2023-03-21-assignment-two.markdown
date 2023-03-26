@@ -103,3 +103,4 @@ Lastly we can make a bokeh interactive plot to, more in depth, look at Vehicle T
 
 
 So, to conclude, it is clear that something has happened in regards to stopping Vehicle Theft in San Francisco. There can be multiple reasons for this. One could be due to the invention of  'engine immobilizer systems' which are devices that block the car engine if a wrong key is used to start it. More of this can be read here: https://www.nytimes.com/2014/08/12/upshot/heres-why-stealing-cars-went-out-of-fashion.html
+When comparing the cases to Vehicle Theft over the years to some of the other crime categories, it can be seen that none of the other crimes have decreased as much at Vehicle Theft (This won't be shown in this assignment). So, it haven't been a general trend in SF, and thus something has happened to specifically vehicles that has made them more difficult to steal 
