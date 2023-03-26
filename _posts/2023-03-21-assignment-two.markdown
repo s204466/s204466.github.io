@@ -91,11 +91,13 @@ for i in range(0, len(dfMap06)):
 m
 ```
 
-![Map](https://github.com/s204466/s204466.github.io/blob/5d747b13f97b767a48f0e9d5b3ef1b7b722323f5/Files/Dual%20Map.png)
+![Map](https://github.com/s204466/s204466.github.io/blob/0729682e18625d7431abd98083da7059e73b81f0/Files/Dual%20Map.png)
 
 Here red dots represent cases from 2005, and the blue dots represent cases from 2006.   
 
-Here it can be seen that all over the city, the blue dots are more sparce than the red ones, which is to be expected since the number of cases has more than halved. It is particularly in the northeastern part of the city, which would make sense since that is the most populated part of the area. We can also see that there are no cases in the park areas, particularly clear in “Golden Gate Part” and in “Presidio”, which can tell us that there are no cars in these areas.
+Here it can be seen that all over the city, the blue dots are more sparce than the red ones, which is to be expected since the number of cases has more than halved. It is particularly in the northeastern part of the city, which would make sense since that is the most populated part of the area. We can also see that there are no cases in the park areas, particularly clear in "Golden Gate Part" and in "Presidio", which can tell us that there are no cars in these areas.
 
 
 
+
+So, to conclude, it is clear that something has happened in regards to stopping Vehicle Theft in San Francisco. There can be multiple reasons for this. One could be due to the invention of  'engine immobilizer systems' which are devices that block the car engine if a wrong key is used to start it. More of this can be read here: https://www.nytimes.com/2014/08/12/upshot/heres-why-stealing-cars-went-out-of-fashion.html
