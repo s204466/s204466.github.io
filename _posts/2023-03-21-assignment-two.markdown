@@ -97,10 +97,90 @@ Here red dots represent cases from 2005, and the blue dots represent cases from 
 
 Here it can be seen that all over the city, the blue dots are more sparce than the red ones, which is to be expected since the number of cases has more than halved. It is particularly in the northeastern part of the city, which would make sense since that is the most populated part of the area. We can also see that there are no cases in the park areas, particularly clear in "Golden Gate Part" and in "Presidio", which can tell us that there are no cars in these areas.
 
-Lastly we can make a bokeh interactive plot to, more in depth, look at Vehicle Theft in each district of the city pr year.
+Lastly we can make a bokeh interactive plot which can be useful in order to look more in depth with some data. in the following we can look at crimes for each month of each year, by changing the slider provided with the bar chart
+Link to bar chart: !!---ADD HTML LINK---!!
 
-!!--Bokeh Code--!!
+The code used to make the bar chart can be seen below:
+```python
+#Import libraries
+import pandas as pd
+from bokeh.models import ColumnDataSource, CustomJS, Slider
+from bokeh.plotting import figure, show, output_file
+from bokeh.layouts import row
 
+#Load in dataset
+data = pd.read_csv("Police_Department_Incident_Reports__Historical_2003_to_May_2018.csv")
+```
+
+```python
+#Filter the dataset to only have the data we want to use
+data2 = data[data["Category"].str.contains("VEHICLE THEFT") == True]
+data2 = data2[data2["Date"].str.contains("2018") == False]
+
+dataMonth = data2.groupby(['Category', data2['Date'].str[:3] + data2['Date'].str[6:]]).size()
+df = pd.DataFrame(dataMonth)
+df = df.reset_index()
+df.columns = ['Category', 'Month', 'Count']
+```
+
+```python
+#Initialize DataSource for the Bokeh plot
+initial_source = ColumnDataSource(df) # source containing all data from the dataframe 
+source = ColumnDataSource(df) # source copy that gets changed depending on the year we look at
+
+#Create a slider to change the year
+initial_year = 2003
+slider = Slider(start=2003, end=2017, value=initial_year, step=1, title="Year")
+# set the first year the user sees (before changeing the slider) to 2003
+df = df[df['Month'].str.contains("2003") == True]
+
+
+#Create tooltips for when hovering over a bar in the barchart
+Tooltips = [('Month', '@Month'), ('Cases', '@Count')]
+
+#Set up the information for the bar chart
+p = figure(x_range=df['Month'], y_range=(0,1800), height=350, title="Data",
+           toolbar_location=None, tooltips=Tooltips)
+
+#Make/styalize the bar chart
+p.vbar(x='Month', top='Count', width=0.9, color='blue', legend_label="Month", source=source)
+
+p.xgrid.grid_line_color = None
+p.legend.orientation = "horizontal"
+p.legend.location = "top_left"
+
+#JS code for updating the bar chart every time the slider is moved
+callback = CustomJS(args=dict(initial_source=initial_source, source=source, p=p, slider=slider), code="""
+    var data = initial_source.data;  // Use the initial data copy
+    var year = slider.value.toString();
+    var month = data['Month'];
+    var count = data['Count'];
+    var newMonth = [];
+    var newCount = [];
+    for (var i = 0; i < month.length; i++) {
+        if (month[i].includes(year)) {
+            newMonth.push(month[i]);
+            newCount.push(count[i]);
+        }
+    }
+    source.data['Month'] = newMonth;
+    source.data['Count'] = newCount;
+    source.change.emit();
+    p.x_range.factors = newMonth;
+    p.x_range.start = -0.2;
+    p.x_range.end = newMonth.length + 0.2;
+""")
+
+#Call the callback function when the slider is moved
+slider.js_on_change('value', callback)
+
+#Save the file as an html
+output_file('filename.html')
+
+#Show the bar chart and the slider
+layout = row(p, slider)
+show(layout)
+```
 
 So, to conclude, it is clear that something has happened in regards to stopping Vehicle Theft in San Francisco. There can be multiple reasons for this. One could be due to the invention of  'engine immobilizer systems' which are devices that block the car engine if a wrong key is used to start it. More of this can be read here: https://www.nytimes.com/2014/08/12/upshot/heres-why-stealing-cars-went-out-of-fashion.html
-When comparing the cases to Vehicle Theft over the years to some of the other crime categories, it can be seen that none of the other crimes have decreased as much at Vehicle Theft (This won't be shown in this assignment). So, it haven't been a general trend in SF, and thus something has happened to specifically vehicles that has made them more difficult to steal 
+When comparing the cases to Vehicle Theft over the years to some of the other crime categories, it can be seen that none of the other crimes have decreased as much at Vehicle Theft (This won't be shown in this assignment). So, it haven't been a general trend in SF, and thus something has happened to specifically vehicles that has made them more difficult to steal.
