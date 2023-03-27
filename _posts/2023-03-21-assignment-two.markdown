@@ -97,8 +97,10 @@ Here red dots represent cases from 2005, and the blue dots represent cases from 
 
 Here it can be seen that all over the city, the blue dots are more sparce than the red ones, which is to be expected since the number of cases has more than halved. It is particularly in the northeastern part of the city, which would make sense since that is the most populated part of the area. We can also see that there are no cases in the park areas, particularly clear in "Golden Gate Part" and in "Presidio", which can tell us that there are no cars in these areas.
 
-Lastly we can make a bokeh interactive plot which can be useful in order to look more in depth with some data. in the following we can look at crimes for each month of each year, by changing the slider provided with the bar chart
-Link to bar chart: !!---ADD HTML LINK---!!
+Lastly we can make a bokeh interactive plot which can be useful in order to look more in depth with some data. in the following we can look at crimes for each month of each year, by changing the slider provided with the bar chart.
+
+Link to bar chart: [Bokeh Bar Chart](https://raw.githack.com/s204466/s204466.github.io/main/Files/Bokeh%20BarChart.html)
+
 
 The code used to make the bar chart can be seen below:
 ```python
